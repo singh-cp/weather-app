@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Anek Malayalam", sans-serif;
+  --bg-color: #2c3e50;
+  --font-color: #d35400;
+  --box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.2);
+  font-size: 20px;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  padding: 1rem;
+  font-weight: 500;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 1rem;
+}
+
+.weather {
+  text-align: center;
+  color: var(--font-color);
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.button-container,
+.weather-search,
+#weather-details {
+  height: 100%;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.button,
+#search-btn {
+  padding: 0.5rem;
+  color: var(--font-color);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+}
+
+.button:hover,
+#search-btn:hover {
+  color: var(--bg-color);
+  background-color: var(--font-color);
+}
+#search-btn,
+input {
+  font-size: 1rem;
+  padding: 0.3rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+}
+input{
+  color: var(--font-color);
+}
+
+.weather-search, #weather-details{
+  display: none;
+}
+
+@media (max-width: 768px) {
+  * {
+    font-size: 15px;
+  }
+  h1{
+    font-size: 2rem;
+  }
+}
