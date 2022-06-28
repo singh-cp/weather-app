@@ -51,6 +51,10 @@ h1 {
   font-size: 1rem;
 }
 
+main > h1{
+  margin-bottom:3rem;
+}
+
 .button,
 #search-btn {
   padding: 0.5rem;

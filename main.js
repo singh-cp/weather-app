@@ -7,22 +7,19 @@ const apiKEY = `8f2ff4a7b08410e66ce21250463bb166`
 
 // Local Weather
 
-function myGetWeather(details) {
+function myGetWeather() {
     weather.style.display = "block";
     weatherSearch.style.display = "none"
-    weather.innerHTML = `<h1>Getting weather details<h1>`
-    if (navigator.geolocation.getCurrentPosition !== false) {
-        navigator.geolocation.getCurrentPosition(extractDetails);
-        weather.innerHTML = `<h1>Gathering Weather Details<h1>`
-        function extractDetails(details) {
-            let longitude = details.coords.longitude;
-            let latitude = details.coords.latitude;
-            weatherDetails(longitude, latitude);
-        }
-    } else {
-        weather.innerHTML = `<h1>Please allow location access and try again<h1>`
-    }
+    weather.innerHTML = `<h1 style="color:green; font-size:2rem; text-transform:lowercase">Please allow Location. . . <h1>`
+    navigator.geolocation.getCurrentPosition(extractDetails);
 }
+function extractDetails(details) {
+    weather.innerHTML = `<h1>Gathering Weather Details<h1>`
+    let longitude = details.coords.longitude;
+    let latitude = details.coords.latitude;
+    weatherDetails(longitude, latitude);
+}
+
 function weatherDetails(lon, lat) {
     const URL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKEY}&units=metric`
     const weatherAPI = fetch(URL, { method: 'GET' })
@@ -52,7 +49,6 @@ form.addEventListener('submit', function (e) {
     weather.style.display = "block";
     weather.innerHTML = `<h1>Gathering Weather Information. . . </h1>`
     citySearch(cityName);
-    return cityName;
 })
 
 const citySearch = async (cityName) => {
@@ -63,18 +59,18 @@ const citySearch = async (cityName) => {
 }
 
 function fillSearch(data) {
+    searchValue.value = ``
     if (data.cod == "404") {
         weather.innerHTML = `<h1> City Not Found <h1>`
         return;
     } else {
         weather.innerHTML = `
             <div class="weather">
+            <h1>${data.name}</h1>
             <img src="https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png"
                 alt="">
-            <h1>${data.name}</h1>
             <h2>Temperature: ${data.main.temp}&deg; C</h2>
             <h4>Humidity: ${data.main.humidity}&#x25;</h4>
-        </div>`
+        </div>`;
     }
-    searchValue.value = ``
 }

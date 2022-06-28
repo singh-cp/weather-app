@@ -15,7 +15,7 @@
 
 <body>
     <main>
-        <h1>Check Weather</h1>
+        <h1>Weather Application</h1>
         <div class="container">
             <div class="weather-search">
                 <form action="" id="form">
@@ -26,12 +26,15 @@
             <div id="weather-details">
             </div>
             <div class="button-container">
-                <button class="button" id="yourcity" onclick="myGetWeather()">Local Weather</button>
+                <button class="button" id="yourcity" onclick="myGetWeather()">Your Location</button>
                 <button class="button" id="customcity" onclick="otherWeather()">Other Location</button>
             </div>
         </div>
     </main>
     <script src="./main.js"></script>
+    <script>
+        window.onload = myGetWeather();
+    </script>
 </body>
 
 </html>
