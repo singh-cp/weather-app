@@ -3,7 +3,7 @@ const search = document.querySelector("#search-btn");
 const searchValue = document.querySelector("#search");
 const weather = document.querySelector("#weather-details");
 const weatherSearch = document.querySelector(".weather-search");
-const apiKEY = secrets.API_KEY;
+const apiKEY = `8f2ff4a7b08410e66ce21250463bb166`;
 
 // Local Weather
 
